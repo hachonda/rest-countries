@@ -8,7 +8,7 @@
     
 </head>
 <body>
-  <select id="locality-dropdown" name="locality" onblur="showBorders()">
+  <select id="locality-dropdown" name="locality" onchange="showBorders()">
   </select>
 
   <p id="borders-text">
@@ -57,7 +57,7 @@ function showBorders(){
   let dropdownvalue = dropdown.options[dropdown.selectedIndex].value;
   let dropdowntext = dropdown.options[dropdown.selectedIndex].text;
 
-  alert ("Borders countries are", dropdownvalue)
+  alert ("Bordering Countries are " + dropdownvalue)
 
 }
 
