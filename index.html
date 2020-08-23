@@ -8,15 +8,19 @@
     
 </head>
 <body>
-  <select id="locality-dropdown" name="locality">
+  <select id="locality-dropdown" name="locality" onblur="showBorders()">
   </select>
+
+  <p id="borders-text">
+    
+  </p>
 
   <script>
     let dropdown = document.getElementById('locality-dropdown');
     dropdown.length = 0;
 
     let defaultOption = document.createElement('option');
-    defaultOption.text = 'Choose Country';
+    defaultOption.text = 'Choose A Country';
 
     dropdown.add(defaultOption);
     dropdown.selectedIndex = 0;
@@ -30,7 +34,7 @@
      for (let i = 0; i < response.data.length; i++) {
           option = document.createElement('option');
       	  option.text = response.data[i].name;
-      	  option.value = response.data[i].abbreviation;
+      	  option.value = response.data[i].borders;
       	  dropdown.add(option);
     	}    
 
@@ -42,6 +46,20 @@
    .then(function () {
      // always executed
    });
+
+   
+var dropdownvalue = dropdown.options[dropdown.selectedIndex].value;
+var dropdowntext = dropdown.options[dropdown.selectedIndex].text;
+
+function showBorders(){
+
+  let dropdown = document.getElementById('locality-dropdown');
+  let dropdownvalue = dropdown.options[dropdown.selectedIndex].value;
+  let dropdowntext = dropdown.options[dropdown.selectedIndex].text;
+
+  alert ("Borders countries are", dropdownvalue)
+
+}
 
     </script>
 </body>
