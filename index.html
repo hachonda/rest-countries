@@ -25,13 +25,12 @@
    .then(function (response) {
      // handle success
      let option;
-
-     console.log("aPI response", response.data);
+     console.log("test API response", response.data);
 
      for (let i = 0; i < response.data.length; i++) {
           option = document.createElement('option');
-      	  option.text = data[i].name;
-      	  option.value = data[i].abbreviation;
+      	  option.text = response.data[i].name;
+      	  option.value = response.data[i].abbreviation;
       	  dropdown.add(option);
     	}    
 
